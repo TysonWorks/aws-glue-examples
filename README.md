@@ -1,4 +1,4 @@
-# Automated Mongo ETL Examples using AWS CDK
+# AWS Glue Examples with CDK
 
 ## Mongo To S3 Example
 For the environment variables, create a `.env` folder inside `mongo-to-s3` folder. 
