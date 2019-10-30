@@ -29,6 +29,6 @@ for collection in collections:
 
 # Write dataframes to s3
 for df in dfs:
-    glueContext.write_dynamic_frame.from_options(frame = df["dynamic_frame"], connection_type = "s3", connection_options = {"path": "TARGET_BUCKET/{}_{}.csv".format(collection, datetime.datetime.now().isoformat())}, format = "csv", transformation_ctx = "datasink4")
+    glueContext.write_dynamic_frame.from_options(frame = df["dynamic_frame"], connection_type = "s3", connection_options = {"path": "TARGET_BUCKET{}".format(df["collection"])}, format = "csv", transformation_ctx = "datasink4")
 
 glueJob.commit()
