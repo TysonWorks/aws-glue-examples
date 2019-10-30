@@ -14,9 +14,8 @@ const GLUE_VERSION = "1.0";
 //This value must be glueetl for Apache Spark
 const COMMAND_NAME = "glueetl";
 const JDBC_PATH = "dependencies/cdata.jdbc.mongodb.jar";
-const BUCKET_NAME = "mongo-glue-etl"
 
-const { RTK, MONGO_SERVER, MONGO_USER, MONGO_PASSWORD, MONGO_PORT, MONGO_SSL, MONGO_DATABASE, COLLECTIONS }= process.env;
+const { RTK, MONGO_SERVER, MONGO_USER, MONGO_PASSWORD, MONGO_PORT, MONGO_SSL, MONGO_DATABASE, COLLECTIONS, BUCKET_NAME }= process.env;
 
 export class MongoGlueETLStack extends cdk.Stack {
     constructor(scope: cdk.Construct, id: string, props?: cdk.StackProps) {
