@@ -1,7 +1,6 @@
 import cdk = require("@aws-cdk/core");
 import glue = require("@aws-cdk/aws-glue");
 import s3 = require("@aws-cdk/aws-s3");
-import s3Asssets = require("@aws-cdk/aws-s3-assets");
 import s3Deployment = require("@aws-cdk/aws-s3-deployment");
 import iam = require("@aws-cdk/aws-iam");
 
@@ -33,7 +32,7 @@ export class MongoGlueETLStack extends cdk.Stack {
             destinationBucket: s3Bucket,
             destinationKeyPrefix: "dependencies"
         });
-        console.log(typeof MONGO_SSL, MONGO_SSL)
+        
         // Replace hardcoded values in script
         replaceValues(
             "scripts/script.py",
