@@ -1,9 +1,8 @@
-import cdk = require("@aws-cdk/core");
-import glue = require("@aws-cdk/aws-glue");
-import s3 = require("@aws-cdk/aws-s3");
-import s3Deployment = require("@aws-cdk/aws-s3-deployment");
-import iam = require("@aws-cdk/aws-iam");
-
+import * as cdk from "@aws-cdk/core";
+import * as glue from "@aws-cdk/aws-glue";
+import * as s3 from "@aws-cdk/aws-s3";
+import * as s3Deployment from "@aws-cdk/aws-s3-deployment";
+import * as iam from "@aws-cdk/aws-iam";
 import { replaceValues } from "./lib";
 import { config } from "dotenv";
 config();
@@ -17,7 +16,7 @@ const JDBC_PATH = "dependencies/cdata.jdbc.mongodb.jar";
 
 const { RTK, MONGO_SERVER, MONGO_USER, MONGO_PASSWORD, MONGO_PORT, MONGO_SSL, MONGO_DATABASE, COLLECTIONS, BUCKET_NAME }= process.env;
 
-export class MongoGlueETLStack extends cdk.Stack {
+class MongoGlueETLStack extends cdk.Stack {
     constructor(scope: cdk.Construct, id: string, props?: cdk.StackProps) {
         super(scope, id, props);
 
@@ -93,6 +92,6 @@ const app = new cdk.App();
 new MongoGlueETLStack(app, "MongoGlueETLStack", {
     env: {
         region: process.env.AWS_REGION,
-        account: process.env.ACCOUNT_ID
+        account: process.env.AWS_ACCOUNT_ID
     }
 });
